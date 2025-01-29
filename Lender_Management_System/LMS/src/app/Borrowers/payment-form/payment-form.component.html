@@ -1,0 +1,81 @@
+<div class="payment-wrapper">
+  <!-- Header -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="nav-title">Make Payment</h1>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <!-- Show form if not submitted -->
+    <div *ngIf="!isSubmitted" class="form-section">
+      <div class="form-card">
+        <div class="card-header">
+          <h2 class="section-title">Enter Loan ID</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" class="form-content">
+            <div class="form-group">
+              <label for="loanId" class="form-label">Loan ID</label>
+              <input
+                type="text"
+                id="loanId"
+                class="form-input"
+                [(ngModel)]="loanId"
+                name="loanId"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMI Schedule -->
+    <div *ngIf="isSubmitted" class="schedule-section">
+      <div class="schedule-header">
+        <h2 class="section-title">EMI Schedule</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div *ngIf="emiSchedule.length > 0" class="schedule-grid">
+        <div *ngFor="let emi of emiSchedule" class="emi-card">
+          <div class="card-body">
+            <div class="emi-details">
+              <h3 class="emi-title">Month: {{ emi.installmentDate }}</h3>
+              <p class="emi-info">
+                <strong>Amount:</strong> {{ emi.emiAmount | currency: 'INR':'symbol' }}
+              </p>
+              <p
+                class="emi-info status-text"
+                [ngClass]="emi.status === 'Due' ? 'status-due' : 'status-paid'"
+              >
+                <strong>Status:</strong> {{ emi.status }}
+              </p>
+            </div>
+            <button
+               class="pay-btn"
+               [disabled]="!emi.showPayNow"
+               [ngClass]="emi.showPayNow ? '' : 'disabled-btn'"
+              (click)="payEmi(emi.emiAmount, emi.installmentDate, emi.id, emi.loanId, emi.borrowerName, emi.borrowerEmail)"
+            >
+              {{ emi.status === 'Due' ? 'Pay Now' : 'Paid' }}
+          </button>
+
+          
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading or Empty Message -->
+      <div *ngIf="emiSchedule.length === 0 && !errorMessage" class="empty-message">
+        No EMI schedule found.
+      </div>
+    </div>
+  </div>
+</div>

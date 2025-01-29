@@ -1,0 +1,97 @@
+<div class="sanctioned-loan-wrapper">
+  <!-- Navbar -->
+  <nav class="navbar" style="position: relative;">
+    <div class="nav-container">
+      <h1 class="nav-title">Sanctioned Loan Details</h1>
+    </div>
+    <button class="back-button" routerLink="/borrower-dashboard" > Back</button>
+
+
+  </nav>
+
+  <div class="main-container">
+    <!-- Loan ID Form -->
+    <div class="form-card" *ngIf="!loanDetails">
+      <div class="card-header">
+        <h2 class="section-title">Enter Loan ID</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="form-content">
+        <form (ngSubmit)="onSubmit()" class="form-grid">
+          <div class="form-group">
+            <label for="loanId" class="form-label">Loan ID</label>
+            <input
+              type="text"
+              id="loanId"
+              class="form-input"
+              [(ngModel)]="loanId"
+              name="loanId"
+              required
+            />
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Loan Details -->
+    <div class="details-card" *ngIf="loanDetails">
+      <div class="card-header">
+        <h2 class="section-title">Loan Details</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="details-content">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Loan ID</span>
+            <span class="info-value">{{ loanDetails.loanId }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Application ID</span>
+            <span class="info-value">{{ loanDetails.applicationId }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Loan Type</span>
+            <span class="info-value">{{ loanDetails.loanType }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Loan Amount</span>
+            <span class="info-value highlight">{{ loanDetails.loanAmount | currency:'INR':'symbol' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">EMI (Estimated Per Month)</span>
+            <span class="info-value primary">{{ loanDetails.emiEstimatedPerMonth | currency:'INR':'symbol' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Borrower Name</span>
+            <span class="info-value">{{ loanDetails.borrowerName }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Borrower Email</span>
+            <span class="info-value">{{ loanDetails.borrowerEmail }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Loan Term (Months)</span>
+            <span class="info-value">{{ loanDetails.loanTerm }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Interest Rate</span>
+            <span class="info-value">{{ loanDetails.interestRate }}%</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Status</span>
+            <span class="info-value">{{ loanDetails.status }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="back-btn" (click)="goBack()">Back</button>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-card" *ngIf="errorMessage">
+      <span class="error-text">Error: {{ errorMessage }}</span>
+    </div>
+  </div>
+</div>

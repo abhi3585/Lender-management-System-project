@@ -1,0 +1,151 @@
+<div class="dashboard-wrapper">
+  <!-- Modern Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <span class="navbar-brand">Enter Loan Details</span>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <div class="content-wrapper">
+      <!-- Loan Application Form -->
+      <div class="form-section" *ngIf="!formSubmitted">
+        <div class="section-header">
+          <h2 class="section-title">Apply for Loan</h2>
+          <p class="section-subtitle">Please fill in the details below to proceed with your loan application</p>
+        </div>
+
+        <div class="form-container">
+          <form #loanForm="ngForm" class="loan-form">
+            <div class="form-grid">
+              <!-- Loan Type Section -->
+              <div class="form-group">
+                <label for="loanType" class="form-label">Loan Type</label>
+                <div class="select-wrapper">
+                  <select
+                    id="loanType"
+                    class="form-control"
+                    [(ngModel)]="loanDetails.loanType"
+                    name="loanType"
+                    required
+                  >
+                    <option value="" disabled selected>Select Loan Type</option>
+                    <option value="Personal Loan">Personal Loan</option>
+                    <option value="Home Loan">Home Loan</option>
+                    <option value="Education Loan">Education Loan</option>
+                    <option value="Business Loan">Business Loan</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Loan Amount Section -->
+              <div class="form-group">
+                <label for="loanAmount" class="form-label">Loan Amount</label>
+                <div class="input-wrapper">
+                  <input
+                    type="number"
+                    id="loanAmount"
+                    class="form-control"
+                    [(ngModel)]="loanDetails.loanAmount"
+                    name="loanAmount"
+                    placeholder="Enter amount"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Loan Term Section -->
+              <div class="form-group">
+                <label for="loanTerm" class="form-label">Preferred Loan Term</label>
+                <div class="select-wrapper">
+                  <select
+                    id="loanTerm"
+                    class="form-control"
+                    [(ngModel)]="loanDetails.loanTerm"
+                    name="loanTerm"
+                    required
+                  >
+                    <option value="" disabled selected>Select Term</option>
+                    <option value="6">6 Months</option>
+                    <option value="12">12 Months</option>
+                    <option value="24">24 Months</option>
+                    <option value="36">36 Months</option>
+                    <option value="60">60 Months (5 Years)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Loan Reason Section -->
+            <div class="form-group full-width">
+              <label for="loanReason" class="form-label">Purpose of Loan</label>
+              <textarea
+                id="loanReason"
+                class="form-control"
+                rows="4"
+                [(ngModel)]="loanDetails.loanReason"
+                name="loanReason"
+                placeholder="Please describe the purpose of your loan"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button
+                type="submit"
+                class="submit-btn"
+                (click)="submitLoanDetails()"
+                [disabled]="!loanForm.valid"
+              >
+                Submit Application
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Available Lenders Section -->
+      <div class="lenders-section" *ngIf="formSubmitted">
+        <div class="section-header">
+          <h2 class="section-title">Available Lenders</h2>
+          <p class="section-subtitle">Select from our verified lending partners</p>
+        </div>
+          <!-- Show message if no lenders are available -->
+  <div *ngIf="availableLenders.length === 0" class="no-lenders-message">
+    <p>No lenders available. Please try again.</p>
+  </div>
+
+        <div class="lenders-grid">
+          <div class="lender-card" *ngFor="let lender of availableLenders">
+            <div class="lender-header">
+              <h3 class="lender-name">{{ lender.name }}</h3>
+              <span class="lender-id">ID: {{ lender.lenderId }}</span>
+            </div>
+
+            <div class="lender-details">
+              <div class="detail-item">
+                <span class="detail-label">Loan Type</span>
+                <span class="detail-value">{{ lender.loanType }}</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Interest Rate</span>
+                <span class="detail-value highlight">{{ lender.interestRate }}%</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Term</span>
+                <span class="detail-value">{{ lender.loanTerm }} months</span>
+              </div>
+              
+            </div>
+
+            <div class="lender-actions">
+              <button class="apply-btn" (click)="applyForLoan(lender)">
+                Apply Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

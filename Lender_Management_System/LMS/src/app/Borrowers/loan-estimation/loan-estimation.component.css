@@ -1,0 +1,168 @@
+/* loan-estimation.component.css */
+.estimation-wrapper {
+    min-height: 100vh;
+    background-color: #f5f6fa;
+  }
+  
+  .navbar {
+    background: linear-gradient(135deg, #1a237e 0%, #303f9f 100%);
+    padding: 1.2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .nav-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+  }
+  
+  .content-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .details-card, .result-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .details-card:hover, .result-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to right, #f8f9fe, #ffffff);
+  }
+  
+  .section-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .divider {
+    height: 3px;
+    width: 50px;
+    background: linear-gradient(to right, #4c84ff, #1a237e);
+    margin-top: 1rem;
+  }
+  
+  .details-content, .result-content {
+    padding: 2rem;
+  }
+  
+  .info-grid, .result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .info-item, .result-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .info-label, .result-label {
+    color: #718096;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .info-value, .result-value {
+    color: #2d3748;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .info-value.highlight {
+    color: #4c84ff;
+    font-size: 1.2rem;
+  }
+  
+  .info-value.accent {
+    color: #7c3aed;
+  }
+  
+  .result-value.primary {
+    color: #4c84ff;
+    font-size: 1.3rem;
+  }
+  
+  .action-section {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .calculate-btn {
+    background: linear-gradient(135deg, #4c84ff 0%, #1a237e 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76,132,255,0.3);
+  }
+  
+  .navigation-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+  
+  .next-btn {
+    background: linear-gradient(135deg, #00b894 0%, #00a382 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,184,148,0.3);
+  }
+  
+  @media (max-width: 768px) {
+    .main-container {
+      padding: 0 1rem 1rem;
+    }
+  
+    .info-grid, .result-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .details-content, .result-content {
+      padding: 1.5rem;
+    }
+  
+    .section-title {
+      font-size: 1.3rem;
+    }
+  }

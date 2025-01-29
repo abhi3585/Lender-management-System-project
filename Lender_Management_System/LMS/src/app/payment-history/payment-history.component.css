@@ -1,0 +1,209 @@
+.payment-history-container {
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.history-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-section h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.loan-id-badge {
+  display: inline-block;
+  background-color: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.loan-id-badge strong {
+  color: #4e73df;
+  font-weight: 600;
+}
+
+.error-alert {
+  background-color: #fff3f3;
+  border-left: 4px solid #dc3545;
+  color: #dc3545;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-alert i {
+  font-size: 1.2rem;
+}
+
+.transaction-table-container {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.transaction-table th {
+  background-color: #4e73df;
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.transaction-table th:first-child {
+  padding-left: 1.5rem;
+}
+
+.transaction-table th:last-child {
+  padding-right: 1.5rem;
+}
+
+.transaction-table tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.2s ease;
+}
+
+.transaction-table tbody tr:hover {
+  background-color: #f8f9fc;
+}
+
+.transaction-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.transaction-table tbody td {
+  border-bottom: 1px solid #e9ecef;
+  color: #5a5c69;
+}
+
+.transaction-table tbody td:first-child {
+  padding-left: 1.5rem;
+}
+
+.transaction-table tbody td:last-child {
+  padding-right: 1.5rem;
+}
+
+.transaction-table .amount-cell {
+  font-family: 'Roboto Mono', monospace;
+  text-align: right;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 3rem 0;
+  color: #6c757d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.no-data-message i {
+  font-size: 2rem;
+  color: #adb5bd;
+}
+
+.no-data-message p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .payment-history-container {
+    padding: 1rem;
+  }
+
+  .history-card {
+    padding: 1rem;
+  }
+
+  .header-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    padding: 0.75rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .payment-history-container {
+    padding: 0;
+    background-color: white;
+  }
+
+  .history-card {
+    box-shadow: none;
+  }
+
+  .transaction-table th {
+    background-color: #f8f9fa !important;
+    color: black;
+  }
+  
+}
+
+.dashboard-button-container {
+  text-align: right;
+  margin-top: 2rem; 
+ 
+}
+
+.btn-dashboard {
+  background-color:  #4e73df;  
+  border-color:  #4e73df;      
+  color: white;               
+  font-size: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-dashboard:hover {
+  background-color:  #4e73df;  
+  border-color: #4e73df;      
+}
+
+.btn-dashboard:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+

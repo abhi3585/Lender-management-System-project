@@ -1,0 +1,49 @@
+<div class="container-fluid p-0">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Lender Management System</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item ms-3">
+            <button class="btn btn-light btn-lg rounded-pill px-5" type="button" [routerLink]="['/login']">
+              Lend a Loan
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <header
+    class="d-flex flex-column justify-content-center align-items-center vh-100 text-white text-center"
+    style="background: linear-gradient(to right, #0066cc, #00b3b3);"
+  >
+    <div>
+      <h1 class="display-4 fw-bold mb-4">Welcome to LMS</h1>
+      <p class="lead mb-5">
+        "The best platform to help you get a loan and achieve financial success."
+      </p>
+      <!-- Get a Loan Button -->
+      <button
+        class="btn btn-light btn-lg rounded-pill px-5 shadow"
+        type="button"
+        [routerLink]="['/borrower-dashboard']"
+      >
+        Get a Loan
+      </button>
+    </div>
+  </header>
+</div>

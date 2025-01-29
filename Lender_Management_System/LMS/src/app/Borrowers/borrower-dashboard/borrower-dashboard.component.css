@@ -1,0 +1,215 @@
+.dashboard {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-icon {
+  font-size: 1.5rem;
+}
+
+.brand-text {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.navbar-user {
+  margin-left: auto; /* Push the button to the right */
+  /* display: flex; */
+  /* align-items: center; */
+  gap: 0.75rem;
+  color: white;
+}
+
+
+
+/* Main Content */
+.main-content {
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Welcome Section */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.welcome-title {
+  color: #1e293b;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Actions Grid */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.action-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  padding: 2rem;
+}
+
+.card-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.apply-icon {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  color: white;
+}
+
+.details-icon {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  color: white;
+}
+
+.payment-icon {
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+  color: white;
+}
+
+.card-title {
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.card-description {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.action-text {
+  color: #3b82f6;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.action-arrow {
+  color: #3b82f6;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.action-card:hover .action-arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .welcome-title {
+    font-size: 1.75rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+}
+/* Back Button Styles */
+.back-button {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #007BFF, #0056b3); /* Gradient background */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 25px; /* Rounded button */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: linear-gradient(90deg, #0056b3, #003d80); /* Darker gradient on hover */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+

@@ -1,0 +1,17 @@
+/* Custom styles for the component */
+.navbar {
+    background-color: #343a40 !important;
+  }
+  
+  header {
+    background: linear-gradient(to right, #0066cc, #00b3b3);
+  }
+  
+  button {
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

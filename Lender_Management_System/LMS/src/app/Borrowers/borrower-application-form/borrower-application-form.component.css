@@ -1,0 +1,252 @@
+/* loan-application.component.css */
+.application-wrapper {
+    min-height: 100vh;
+    background-color: #f5f6fa;
+  }
+  
+  .navbar {
+    background: linear-gradient(135deg, #1a237e 0%, #303f9f 100%);
+    padding: 1.2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .nav-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+  }
+  
+  .content-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .form-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .form-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to right, #f8f9fe, #ffffff);
+  }
+  
+  .section-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .divider {
+    height: 3px;
+    width: 50px;
+    background: linear-gradient(to right, #4c84ff, #1a237e);
+    margin-top: 1rem;
+  }
+  
+  .form-content {
+    padding: 2rem;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-label {
+    color: #718096;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .form-input {
+    padding: 0.8rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #4c84ff;
+    box-shadow: 0 0 0 3px rgba(76,132,255,0.1);
+  }
+  
+  .form-input.highlight {
+    color: #4c84ff;
+    font-weight: 600;
+    background-color: #f8f9fe;
+  }
+  
+  .form-input.accent {
+    color: #7c3aed;
+    font-weight: 600;
+    background-color: #f8f9fe;
+  }
+  
+  .action-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+  
+  .submit-btn {
+    background: linear-gradient(135deg, #4c84ff 0%, #1a237e 100%);
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76,132,255,0.3);
+  }
+  
+  .submit-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .main-container {
+      padding: 0 1rem 1rem;
+    }
+  
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .form-content {
+      padding: 1.5rem;
+    }
+  
+    .section-title {
+      font-size: 1.3rem;
+    }
+  
+    .submit-btn {
+      width: 100%;
+    }
+    .success-message {
+        text-align: center;
+        padding: 20px;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      
+      .success-message h2 {
+        font-size: 24px;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .dashboard-btn {
+        margin-left: auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .dashboard-btn:hover {
+        background-color: #45a049;
+      }
+
+      .loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+}
+
+.dashboard-button {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #007BFF, #0056b3); /* Gradient background */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+ 
+  border: none;
+  border-radius: 25px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dashboard-button:hover {
+  background: linear-gradient(90deg, #0056b3, #003d80); 
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); 
+}

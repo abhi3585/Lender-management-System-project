@@ -1,0 +1,84 @@
+<div class="estimation-wrapper">
+  <!-- Modern Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="nav-title">Loan Estimation</h1>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <div class="content-grid">
+      <!-- Loan Details Section -->
+      <div class="details-card">
+        <div class="card-header">
+          <h2 class="section-title">Loan Details</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="details-content">
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="info-label">Loan Type</span>
+              <span class="info-value">{{ loanDetails.loanType }}</span>
+            </div>
+            
+            <div class="info-item">
+              <span class="info-label">Loan Amount</span>
+              <span class="info-value highlight">{{ loanDetails.loanAmount | currency:'INR':'symbol':'1.0-0' }}</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label">Loan Term</span>
+              <span class="info-value">{{ loanDetails.loanTerm }} months</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label">Interest Rate Per Year</span>
+              <span class="info-value accent">{{ lender.interestRate }}%</span>
+            </div>
+          </div>
+
+          <div class="action-section">
+            <button class="calculate-btn" (click)="calculateEMI()">
+              Calculate Estimation
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMI Calculation Result -->
+      <div class="result-card" *ngIf="emi > 0">
+        <div class="card-header">
+          <h2 class="section-title">EMI Breakdown</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="result-content">
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="result-label">Monthly EMI</span>
+              <span class="result-value primary">{{ emi | currency:'INR':'symbol':'1.0-0' }}</span>
+            </div>
+
+            <div class="result-item">
+              <span class="result-label">Total Amount Payable</span>
+              <span class="result-value">{{ totalPayable | currency:'INR':'symbol':'1.0-0' }}</span>
+            </div>
+
+            <div class="result-item">
+              <span class="result-label">Interest Amount</span>
+              <span class="result-value">{{ interestAmount | currency:'INR':'symbol':'1.0-0' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Button -->
+      <div class="navigation-section" *ngIf="emi > 0">
+        <button class="next-btn" (click)="navigateToApplicationForm()">
+          Proceed to Application
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

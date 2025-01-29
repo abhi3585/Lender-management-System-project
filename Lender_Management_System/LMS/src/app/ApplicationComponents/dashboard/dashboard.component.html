@@ -1,0 +1,91 @@
+<div class="dashboard-container" style="
+
+  min-height: 100vh;
+  background-image: url('https://cdn.prod.website-files.com/64a6f67b79a80fd9ff31ca7a/655b0db8ec7230f30f00fcf6_developing%20a%20loan%20management%20system.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;"
+  >
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <i class="fas fa-money-bill-wave navbar-icon"></i>
+      <span class="navbar-welcome">Welcome, {{ name }}</span>
+    </div>
+    <div class="navbar-right">
+      <button class="nav-btn alert-btn" [routerLink]="'/alert-form'">
+        <i class="fas fa-bell"></i>
+        <span>Alerts</span>
+      </button>
+      <button class="nav-btn profile-btn" [routerLink]="'/profile'">
+        <i class="fas fa-user-circle"></i>
+        <span>Profile</span>
+      </button>
+      <button class="nav-btn logout-btn" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+ 
+  <div class="dashboard-content">
+    <div class="cards-grid">
+      <!-- Loan Offerings Card -->
+      <div class="dashboard-card loan-card">
+        <div class="card-icon">
+          <i class="fas fa-credit-card"></i>
+        </div>
+        <div class="card-content">
+          <h2>Loan Offerings</h2>
+          <p>Explore various loan offerings available for you</p>
+          <button class="card-btn" [routerLink]="'/loan-creation'">Configure Loan</button>
+        </div>
+      </div>
+
+      <!-- Application Forms Card -->
+      <div class="dashboard-card forms-card">
+        <div class="card-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div class="card-content">
+          <h2>Application Forms</h2>
+          <p>View and manage your loan application forms</p>
+          <button class="card-btn" (click)="onViewFormsClick()">View Forms</button>
+        </div>
+      </div>
+
+      <!-- Payment Tracking Card -->
+      <div class="dashboard-card tracking-card">
+        <div class="card-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="card-content">
+          <h2>Payment Tracking</h2>
+          <p>Track your loan payment status in real-time</p>
+          <button class="card-btn" (click)="onTrackPaymentsClick()">Track Payments</button>
+        </div>
+      </div>
+
+
+      <!-- Analytics Card -->
+      <div class="dashboard-card analytics-card">
+        <div class="card-icon">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+        <div class="card-content">
+          <h2>Payment Analytics</h2>
+          <p>Analyze payment trends and insights</p>
+          <button class="card-btn" (click)="onPaymentAnalyticsClick()">View Analytics</button>
+        </div>
+      </div>
+    </div>
+
+  
+  
+
+
+</div>

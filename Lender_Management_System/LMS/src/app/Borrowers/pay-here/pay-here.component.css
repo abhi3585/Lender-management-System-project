@@ -1,0 +1,149 @@
+/* Custom Navbar Styles */
+.custom-navbar {
+  background-color: #1a237e;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.custom-navbar .navbar-brand {
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.dashboard-btn {
+  border-width: 2px;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.dashboard-btn:hover {
+  background-color: white;
+  color: #1a237e;
+  transform: translateY(-1px);
+}
+
+/* Payment Container Styles */
+.payment-container {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 76px);
+  padding: 3rem 0;
+}
+
+.payment-card {
+  max-width: 800px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card-title {
+  color: #1a237e;
+  font-weight: 600;
+}
+
+/* Form Styles */
+.payment-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #1a237e;
+  box-shadow: 0 0 0 0.2rem rgba(26,35,126,0.25);
+}
+
+.form-control[readonly] {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.input-group-text {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+}
+
+/* Button Styles */
+.payment-button {
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  width: 100%;
+  max-width: 400px;
+  margin: 1.5rem auto 0;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.payment-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.payment-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.receipt-button {
+  padding: 0.75rem 2rem;
+  font-weight: 500;
+  margin: 1rem auto 0;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.receipt-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Alert Styles */
+.alert {
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 1.5rem 0;
+  }
+  
+  .payment-card {
+    margin: 0 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,183 @@
+/* Wrapper Styles */
+.payment-wrapper {
+    min-height: 100vh;
+    background-color: #f5f6fa;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background: linear-gradient(135deg, #1a237e 0%, #303f9f 100%);
+    padding: 1.2rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .nav-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  /* Main Container */
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+  }
+  
+  /* Form Section */
+  .form-section {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to right, #f8f9fe, #ffffff);
+  }
+  
+  .section-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .divider {
+    height: 3px;
+    width: 50px;
+    background: linear-gradient(to right, #4c84ff, #1a237e);
+    margin-top: 1rem;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-label {
+    color: #718096;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #4c84ff 0%, #1a237e 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 132, 255, 0.3);
+  }
+  
+  /* Schedule Section */
+  .schedule-section {
+    margin-top: 2rem;
+  }
+  
+  .schedule-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .emi-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+  }
+  
+  .emi-details {
+    margin-bottom: 1rem;
+  }
+  
+  .emi-title {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .emi-info {
+    color: #4a5568;
+    font-size: 1rem;
+  }
+  
+  .status-text {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .status-due {
+    color: #e53e3e; /* Red for "Due" status */
+  }
+  
+  .status-paid {
+    color: #38a169; /* Green for "Paid" status */
+  }
+  
+ /* Pay Button */
+.pay-btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #4c84ff 0%, #1a237e 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .pay-btn:disabled {
+    background-color: #e0f7fa; /* Light blue for disabled buttons */
+    color: #b0bec5; /* Light gray text */
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  .pay-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 132, 255, 0.3);
+  }
+  
+  /* Specific styling for the "Paid" button */
+  .status-paid-btn {
+    background-color: #e0f7fa; /* Light blue for "Paid" status */
+    color: #b0bec5; /* Light gray text */
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  

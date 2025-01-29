@@ -1,0 +1,50 @@
+<!-- payment-history.component.html -->
+<div class="payment-history-container">
+  <div class="history-card">
+    <div class="header-section">
+      <h2>Payment History</h2>
+      <div class="loan-id-badge">
+        Loan ID: <strong>{{ loanId }}</strong>
+      </div>
+    </div>
+
+    <!-- Dashboard Button -->
+    <div class="dashboard-button-container">
+      <button class="btn-dashboard" routerLink="/dashboard">Go to Dashboard</button>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-alert">
+      <i class="fas fa-exclamation-circle"></i>
+      {{ errorMessage }}
+    </div>
+
+    <!-- Transaction History Table -->
+    <div *ngIf="transactions.length > 0" class="transaction-table-container">
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Date</th>
+            <th>Email</th>
+            <th>Amount Paid (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.transactionId }}</td>
+            <td>{{ transaction.date }}</td>
+            <td>{{ transaction.email }}</td>
+            <td class="amount-cell">{{ transaction.amountPaid | currency: 'INR':'symbol' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- No Transactions Found -->
+    <div *ngIf="transactions.length === 0 && !errorMessage" class="no-data-message">
+      <i class="fas fa-info-circle"></i>
+      <p>No transactions found for this Loan ID.</p>
+    </div>
+  </div>
+</div>

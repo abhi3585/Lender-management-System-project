@@ -1,0 +1,185 @@
+
+  <div class="application-wrapper">
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+      <div class="nav-container" >
+        <h1 class="nav-title" >Loan Application Form</h1>
+        
+      </div>
+      <button class="dashboard-button" routerLink="/borrower-dashboard" >
+        Dashboard
+      </button>
+    </nav>
+    
+  
+  <div class="main-container">
+    <!-- Show loading message or spinner if form is being submitted -->
+    <div *ngIf="isLoading" class="loading-message">
+      <div class="spinner-wrapper">
+        <div class="spinner"></div>
+        <p>Submitting your application...</p>
+      </div>
+    </div>
+
+    <!-- Show success message if form is submitted -->
+    <div *ngIf="formSubmitted" class="success-message">
+      <h2>Loan Application Submitted Successfully!</h2>
+      <p>Thank you for applying. We will contact you regarding the loan status through email.</p>
+    </div>
+
+    <!-- Show form if not submitted and not loading -->
+    <form #loanForm="ngForm" *ngIf="!formSubmitted && !isLoading" (ngSubmit)="submitForm()" class="content-grid">
+      <!-- Lender Information Card -->
+      <div class="form-card">
+        <div class="card-header">
+          <h2 class="section-title">Lender Details</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="form-content">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="lenderId" class="form-label">Lender ID</label>
+              <input type="text" id="lenderId" class="form-input" [(ngModel)]="loanApplication.lenderId" name="lenderId" required #lenderId="ngModel" placeholder="Enter Lender ID">
+              <div *ngIf="lenderId.invalid && lenderId.touched" class="validation-message">
+                Lender ID is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="loanType" class="form-label">Loan Type</label>
+              <input type="text" id="loanType" class="form-input" [(ngModel)]="loanApplication.loanType" name="loanType" required #loanType="ngModel" placeholder="Enter Loan Type">
+              <div *ngIf="loanType.invalid && loanType.touched" class="validation-message">
+                Loan Type is required.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loan Information Card -->
+      <div class="form-card">
+        <div class="card-header">
+          <h2 class="section-title">Loan Details</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="form-content">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="loanAmount" class="form-label">Loan Amount</label>
+              <input type="number" id="loanAmount" class="form-input" [(ngModel)]="loanApplication.loanAmount" name="loanAmount" required #loanAmount="ngModel" placeholder="Enter Loan Amount">
+              <div *ngIf="loanAmount.invalid && loanAmount.touched" class="validation-message">
+                Loan Amount is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="interestRate" class="form-label">Interest Rate (%)</label>
+              <input type="number" id="interestRate" class="form-input" [(ngModel)]="loanApplication.interestRate" name="interestRate" required #interestRate="ngModel" placeholder="Enter Interest Rate">
+              <div *ngIf="interestRate.invalid && interestRate.touched" class="validation-message">
+                Interest Rate is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="loanTerm" class="form-label">Loan Term (months)</label>
+              <input type="number" id="loanTerm" class="form-input" [(ngModel)]="loanApplication.loanTerm" name="loanTerm" required #loanTerm="ngModel" placeholder="Enter Loan Term">
+              <div *ngIf="loanTerm.invalid && loanTerm.touched" class="validation-message">
+                Loan Term is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="totalPayableAmount" class="form-label">Total Payable Amount</label>
+              <input type="number" id="totalPayableAmount" class="form-input highlight" [(ngModel)]="loanApplication.totalPayableAmount" name="totalPayableAmount" required readonly placeholder="Total Payable Amount">
+            </div>
+            <div class="form-group">
+              <label for="emiEstimatedPerMonth" class="form-label">EMI Estimated per Month</label>
+              <input type="number" id="emiEstimatedPerMonth" class="form-input accent" [(ngModel)]="loanApplication.emiEstimatedPerMonth" name="emiEstimatedPerMonth" required readonly placeholder="EMI Estimated per Month">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Borrower Information Card -->
+      <div class="form-card">
+        <div class="card-header">
+          <h2 class="section-title">Borrower Information</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="form-content">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="borrowerName" class="form-label">Borrower Name</label>
+              <input type="text" id="borrowerName" class="form-input" [(ngModel)]="loanApplication.borrowerName" name="borrowerName" required pattern="[A-Za-z ]+" title="Only alphabets are allowed" #borrowerName="ngModel" placeholder="Enter Borrower Name">
+              <div *ngIf="borrowerName.invalid && borrowerName.touched" class="validation-message">
+                Borrower Name is required and must only contain alphabets.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="borrowerEmail" class="form-label">Borrower Email</label>
+              <input type="email" id="borrowerEmail" class="form-input" [(ngModel)]="loanApplication.borrowerEmail" name="borrowerEmail" required pattern="[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+" title="Valid email is required" #borrowerEmail="ngModel" placeholder="Enter Borrower Email">
+              <div *ngIf="borrowerEmail.invalid && borrowerEmail.touched" class="validation-message">
+                Valid Borrower Email is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber" class="form-label">Phone Number</label>
+              <input type="text" id="phoneNumber" class="form-input" [(ngModel)]="loanApplication.phoneNumber" name="phoneNumber" required pattern="^[0-9]{10}$" maxlength="10" title="Phone number must be 10 digits" #phoneNumber="ngModel" placeholder="Enter Phone Number">
+              <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="validation-message">
+                Phone Number is required and must be 10 digits.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="panCard" class="form-label">PAN Card</label>
+              <input type="text" id="panCard" class="form-input" [(ngModel)]="loanApplication.panCard" name="panCard" required pattern="^[A-Za-z0-9]{8}$" maxlength="8" title="PAN card must be exactly 8 alphanumeric characters" #panCard="ngModel" placeholder="Enter PAN Card">
+              <div *ngIf="panCard.invalid && panCard.touched" class="validation-message">
+                PAN Card is required and must be exactly 8 alphanumeric characters.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="creditScore" class="form-label">Credit Score</label>
+              <input type="number" id="creditScore" class="form-input" [(ngModel)]="loanApplication.creditScore" name="creditScore" required #creditScore="ngModel" placeholder="Enter Credit Score">
+              <div *ngIf="creditScore.invalid && creditScore.touched" class="validation-message">
+                Credit Score is required.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bank Details Card -->
+      <div class="form-card">
+        <div class="card-header">
+          <h2 class="section-title">Bank Details</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="form-content">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="bankName" class="form-label">Bank Name</label>
+              <input type="text" id="bankName" class="form-input" [(ngModel)]="loanApplication.bankName" name="bankName" required #bankName="ngModel" placeholder="Enter Bank Name">
+              <div *ngIf="bankName.invalid && bankName.touched" class="validation-message">
+                Bank Name is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="bankAccountNumber" class="form-label">Bank Account Number</label>
+              <input type="number" id="bankAccountNumber" class="form-input" [(ngModel)]="loanApplication.bankAccountNumber" name="bankAccountNumber" required pattern="^[0-9]{10}$" maxlength="10" required #bankAccountNumber="ngModel" placeholder="Enter Bank Account Number">
+              <div *ngIf="bankAccountNumber.invalid && bankAccountNumber.touched" class="validation-message">
+                Bank Account Number is required and must be 10 digits.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="bankIfscCode" class="form-label">IFSC Code</label>
+              <input type="text" id="bankIfscCode" class="form-input" [(ngModel)]="loanApplication.bankIfscCode" name="bankIfscCode" required pattern="^[A-Za-z0-9]{8}$" maxlength="8" #bankIfscCode="ngModel" placeholder="Enter IFSC Code">
+              <div *ngIf="bankIfscCode.invalid && bankIfscCode.touched" class="validation-message">
+                IFSC Code is required and must be exactly 8 alphanumeric characters.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <button type="submit" class="submit-btn" [disabled]="loanForm.invalid || isLoading">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

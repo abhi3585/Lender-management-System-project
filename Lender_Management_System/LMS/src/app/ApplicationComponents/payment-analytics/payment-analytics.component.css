@@ -1,0 +1,42 @@
+/* Navbar customization */
+.navbar {
+  border-radius: 0.5rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Alert box */
+.alert {
+  border-radius: 0.5rem;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+/* Card styling */
+.card {
+  border-radius: 1rem;
+  background-color: #f8f9fa;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  color: #495057;
+  font-weight: bold;
+}
+
+canvas {
+  width: 100% !important;
+  height: 400px !important;
+}

@@ -1,0 +1,138 @@
+<div class="container mt-4">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand ms-3" href="#">Loan Configuration</a>
+    <div class="ms-auto">
+      <button class="btn btn-cancel" (click)="goBack()" style="color: white;">Back</button>
+    </div>
+  </nav>
+
+  <!-- Loan Configuration Card -->
+  <div class="card shadow-lg">
+    <div class="card-header">
+      <h4 class="mb-0">Complete Your Loan Configuration</h4>
+    </div>
+    <div class="card-body">
+      <form #loanForm="ngForm" (ngSubmit)="saveLoanConfig()" novalidate>
+        <div class="row g-4">
+          <!-- Lender ID -->
+          <div class="col-md-6">
+            <label for="lenderId" class="form-label">Lender ID</label>
+            <input
+              type="text"
+              id="lenderId"
+              class="form-control"
+              [(ngModel)]="loanConfig.lenderId"
+              name="lenderId"
+              required
+              placeholder="Enter Lender ID"
+            />
+          </div>
+
+          <!-- Loan Type -->
+          <div class="col-md-6">
+            <label for="loanType" class="form-label">Loan Type</label>
+            <select
+              id="loanType"
+              class="form-select"
+              [(ngModel)]="loanConfig.loanType"
+              name="loanType"
+              required
+            >
+              <option value="" disabled selected>Select Loan Type</option>
+              <option value="Personal Loan">Personal Loan</option>
+              <option value="Education Loan">Education Loan</option>
+              <option value="Home Loan">Home Loan</option>
+              <option value="Business Loan">Business Loan</option>
+            </select>
+          </div>
+
+          <!-- Interest Rate -->
+          <div class="col-md-6">
+            <label for="interestRate" class="form-label">Interest Rate Per Year(%)</label>
+            <input
+              type="number"
+              id="interestRate"
+              class="form-control"
+              [(ngModel)]="loanConfig.interestRate"
+              name="interestRate"
+              step="0.01"
+              required
+              placeholder="Enter Interest Rate"
+              [ngClass]="{'is-invalid': loanConfig.interestRate != null && loanConfig.interestRate < 0}"
+            />
+            <div *ngIf="loanConfig.interestRate != null && loanConfig.interestRate < 0" class="text-danger mt-2">
+              Interest Rate cannot be negative.
+            </div>
+          </div>
+
+          <!-- Loan Term -->
+          <div class="col-md-6">
+            <label for="loanTerm" class="form-label">Loan Term (Months)</label>
+            <select
+              id="loanTerm"
+              class="form-select"
+              [(ngModel)]="loanConfig.loanTerm"
+              name="loanTerm"
+              required
+            >
+              <option value="" disabled selected>Select Loan Term</option>
+              <option value="6">6 months</option>
+              <option value="12">12 months (1 year)</option>
+              <option value="24">24 months (2 years)</option>
+              <option value="36">36 months (3 years)</option>
+              <option value="60">60 months (5 years)</option>
+            </select>
+          </div>
+
+          <!-- Minimum Loan Amount -->
+          <div class="col-md-6">
+            <label for="minAmount" class="form-label">Minimum Loan Amount</label>
+            <input
+              type="number"
+              id="minAmount"
+              class="form-control"
+              [(ngModel)]="loanConfig.minLoanAmount"
+              name="minAmount"
+              required
+              placeholder="Enter Minimum Loan Amount"
+              [ngClass]="{'is-invalid': loanConfig.minLoanAmount != null && loanConfig.minLoanAmount < 0}"
+            />
+            <div *ngIf="loanConfig.minLoanAmount != null && loanConfig.minLoanAmount < 0" class="text-danger mt-2">
+              Minimum Loan Amount cannot be negative.
+            </div>
+          </div>
+
+          <!-- Maximum Loan Amount -->
+          <div class="col-md-6">
+            <label for="maxAmount" class="form-label">Maximum Loan Amount</label>
+            <input
+              type="number"
+              id="maxAmount"
+              class="form-control"
+              [(ngModel)]="loanConfig.maxLoanAmount"
+              name="maxAmount"
+              required
+              placeholder="Enter Maximum Loan Amount"
+              [ngClass]="{'is-invalid': loanConfig.maxLoanAmount != null && loanConfig.maxLoanAmount < 0}"
+            />
+            <div *ngIf="loanConfig.maxLoanAmount != null && loanConfig.maxLoanAmount < 0" class="text-danger mt-2">
+              Maximum Loan Amount cannot be negative.
+            </div>
+          </div>
+        </div>
+
+        <!-- Save Button -->
+        <div class="text-center mt-4">
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg px-5"
+            [disabled]="!loanForm.form.valid || loanConfig.interestRate == null || loanConfig.minLoanAmount == null || loanConfig.maxLoanAmount == null || loanConfig.interestRate < 0 || loanConfig.minLoanAmount < 0 || loanConfig.maxLoanAmount < 0"
+          >
+            Save Configuration
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

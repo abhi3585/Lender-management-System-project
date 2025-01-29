@@ -1,0 +1,92 @@
+<div class="profile-container">
+  <nav class="profile-navbar d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="#">Profile</a>
+    <div>
+      <button class="dashboard-btn" [routerLink]="'/dashboard'">Dashboard</button>
+    </div>
+  </nav>
+
+  <div class="profile-content" *ngIf="isFirstTimeLogin; else showSavedProfile">
+    <div class="profile-card">
+      <div class="card-body p-4">
+        <h4 class="card-title">Complete Your Profile</h4>
+        <form #profileForm="ngForm">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" id="fullName" class="form-control" [(ngModel)]="profile.fullname" name="fullName" required readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" [(ngModel)]="profile.email" name="email" required readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="lenderId" class="form-label">Lender ID</label>
+            <input type="text" id="lenderId" class="form-control" [(ngModel)]="profile.lenderId" name="lenderId" required readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <div class="input-group">
+              <span class="input-group-text">+91</span>
+              <input type="text" id="phoneNumber" class="form-control" [(ngModel)]="profile.phonenumber" name="phoneNumber" required 
+                     pattern="^\d{10}$" maxlength="10" #phoneNumber="ngModel">
+            </div>
+            <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="text-danger">
+              Phone number must be exactly 10 digits.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="bankName" class="form-label">Bank Name</label>
+            <input type="text" id="bankName" class="form-control" [(ngModel)]="profile.bankname" name="bankName" required 
+                   pattern="^[a-zA-Z\s]+$" #bankName="ngModel">
+            <div *ngIf="bankName.invalid && bankName.touched" class="text-danger">
+              Bank Name must contain only alphabets and spaces.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="accountNumber" class="form-label">Account Number</label>
+            <input type="text" id="accountNumber" class="form-control" [(ngModel)]="profile.accountnumber" name="accountNumber" required 
+                   pattern="^[0-9]{10}$" maxlength="10" #accountNumber="ngModel">
+            <div *ngIf="accountNumber.invalid && accountNumber.touched" class="text-danger">
+              Account number must be exactly 10 digits.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="ifsc" class="form-label">IFSC Code</label>
+            <input type="text" id="ifsc" class="form-control" [(ngModel)]="profile.ifsc" name="ifsc" required 
+                   pattern="^[A-Za-z]{8}$" maxlength="8" #ifsc="ngModel">
+            <div *ngIf="ifsc.invalid && ifsc.touched" class="text-danger">
+              IFSC code must be exactly 8 characters.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-md" style="width: auto;" (click)="saveProfile()" [disabled]="profileForm.invalid">Save Profile</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #showSavedProfile>
+    <div class="profile-card">
+      <div class="card-body p-4">
+        <h4 class="card-title">Your Profile</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Full Name:</strong> {{ profile.fullname }}</li>
+          <li class="list-group-item"><strong>Email:</strong> {{ profile.email }}</li>
+          <li class="list-group-item"><strong>Lender ID:</strong> {{ profile.lenderId }}</li>
+          <li class="list-group-item"><strong>Phone Number:</strong> {{ profile.phonenumber }}</li>
+          <li class="list-group-item"><strong>Bank Name:</strong> {{ profile.bankname }}</li>
+          <li class="list-group-item"><strong>Account Number:</strong> {{ profile.accountnumber }}</li>
+          <li class="list-group-item"><strong>IFSC Code:</strong> {{ profile.ifsc }}</li>
+        </ul>
+        <button class="btn btn-warning mt-3" (click)="isFirstTimeLogin = true">Edit Profile</button>
+      </div>
+    </div>
+  </ng-template>
+</div>

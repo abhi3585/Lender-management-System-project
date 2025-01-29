@@ -1,0 +1,116 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="#">Payment Form</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <button class="btn btn-outline-light dashboard-btn" routerLink="/borrower-dashboard">
+            Dashboard
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Payment Section -->
+<div class="payment-container">
+  <div class="container">
+    <div class="card payment-card">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Payment Details</h2>
+        
+        <!-- Payment Form -->
+        <form *ngIf="!paymentProcessed" (ngSubmit)="submitPayment()" #paymentForm="ngForm" class="payment-form">
+          <!-- Loan ID -->
+          <div class="form-group">
+            <label for="loanId" class="form-label">Loan ID</label>
+            <input type="text" id="loanId" class="form-control" [value]="loanId" readonly />
+          </div>
+
+          <!-- Card Number -->
+          <div class="form-group">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <div class="input-group">
+              <input type="text" id="cardNumber" class="form-control" 
+                     [(ngModel)]="cardDetails.cardNumber" name="cardNumber" 
+                     required placeholder="Enter Card Number" />
+              <span class="input-group-text">
+                <i class="fas fa-credit-card"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card Holder Name -->
+          <div class="form-group">
+            <label for="cardHolderName" class="form-label">Card Holder Name</label>
+            <input type="text" id="cardHolderName" class="form-control" 
+                   [(ngModel)]="cardDetails.cardHolderName" name="cardHolderName" 
+                   required placeholder="Enter Card Holder Name" />
+          </div>
+
+          <!-- Two Column Layout for CVV and Expiry -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="cvv" class="form-label">CVV</label>
+                <input type="password" id="cvv" class="form-control" 
+                       [(ngModel)]="cardDetails.cvv" name="cvv" 
+                       required placeholder="Enter CVV" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="expiryDate" class="form-label">Expiry Date</label>
+                <input type="text" id="expiryDate" class="form-control" 
+                       [(ngModel)]="cardDetails.expiryDate" name="expiryDate" 
+                       required placeholder="MM/YY" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Amount -->
+          <div class="form-group">
+            <label for="amount" class="form-label">Amount</label>
+            <div class="input-group">
+              <span class="input-group-text">Rs</span>
+              <input type="number" id="amount" class="form-control" [value]="amount" readonly />
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-success payment-button" 
+                  [disabled]="paymentForm.invalid || isSubmitting">
+            {{ isSubmitting ? 'Processing...' : 'Make Payment' }}
+          </button>
+        </form>
+
+        <!-- Success Messages -->
+        <div *ngIf="paymentProcessed && successMessages.length > 0" 
+             class="alert alert-success fade-in mt-3">
+          <ul class="list-unstyled mb-0">
+            <li *ngFor="let message of successMessages">{{ message }}</li>
+          </ul>
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="paymentProcessed && errorMessage" 
+             class="alert alert-danger fade-in mt-3">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Generate Receipt Button -->
+        <button *ngIf="paymentProcessed && showReceiptButton" 
+                class="btn btn-primary receipt-button" 
+                (click)="generateReceipt()">
+          <i class="fas fa-file-invoice me-2"></i>Generate Receipt
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

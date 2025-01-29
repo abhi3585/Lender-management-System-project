@@ -1,0 +1,74 @@
+<div class="dashboard">
+  <!-- Modern Navigation Bar -->
+  <nav class="navbar" style="position: relative;">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <span class="brand-icon">💼</span>
+        <h1 class="brand-text">LMS</h1>
+      </div>
+    </div>
+    <!-- Back Button -->
+    <button class="back-button" routerLink="" >
+      Back
+    </button>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <h2 class="welcome-title">Your Loan Dashboard</h2>
+        <p class="welcome-subtitle">Manage your loans and payments in one place</p>
+      </section>
+
+      <!-- Quick Actions Grid -->
+      <div class="actions-grid">
+        <!-- Apply for Loan Card -->
+        <div class="action-card" [routerLink]="['/borrower-loanDetails']">
+          <div class="card-content">
+            <div class="card-icon apply-icon">
+              <span>📝</span>
+            </div>
+            <h3 class="card-title">Apply for a Loan</h3>
+            <p class="card-description">Submit a new loan application quickly and easily</p>
+            <div class="card-action">
+              <span class="action-text">Get Started</span>
+              <span class="action-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Check Loan Details Card -->
+        <div class="action-card" [routerLink]="['/check-loan-details']">
+          <div class="card-content">
+            <div class="card-icon details-icon">
+              <span>📊</span>
+            </div>
+            <h3 class="card-title">Check Loan Details</h3>
+            <p class="card-description">View your active loans and their status</p>
+            <div class="card-action">
+              <span class="action-text">View Details</span>
+              <span class="action-arrow">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Make Payment Card -->
+        <div class="action-card" [routerLink]="['/payment-form']">
+          <div class="card-content">
+            <div class="card-icon payment-icon">
+              <span>💳</span>
+            </div>
+            <h3 class="card-title">Make Payment</h3>
+            <p class="card-description">Pay your EMI or make an advance payment</p>
+            <div class="card-action">
+              <span class="action-text">Pay Now</span>
+              <span class="action-arrow">→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
